@@ -51,8 +51,11 @@ public class UnsafeSerum extends MobEffect {
 	@Override
 	public void applyEffectTick(@NotNull LivingEntity pLivingEntity, int pAmplifier) {
 		//Deal damage similar to poison V
-		if (pLivingEntity.getHealth() > 2.5F) {
-			pLivingEntity.hurt(pLivingEntity.damageSources().wither(), 2.0F);
+		if (pLivingEntity.getHealth() > 3.5F) {
+			pLivingEntity.hurt(pLivingEntity.damageSources().wither(), 3.0F);
+		}
+		else if (pLivingEntity.getHealth() > 1.5f) {
+			pLivingEntity.hurt(pLivingEntity.damageSources().wither(), 1.0F);
 		}
 	}
 
@@ -90,8 +93,6 @@ public class UnsafeSerum extends MobEffect {
 				ChangedAddonMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> player), new ClientboundOpenFTKCScreenPacket(minigameType));
 				event.shouldKeepConscious = true;
 			}
-
-			//If CAddon is loaded, and servercfg "Trigger CAddon Fight to keep consciousness" and if the CAddon gr is not enabled, trigger fight to keep consciousness.
 		}
 
 		@SubscribeEvent
