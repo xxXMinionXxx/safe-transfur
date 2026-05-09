@@ -49,7 +49,7 @@ public class ConsciousnessSyringeItem extends Item implements net.ltxprogrammer.
 		if (player instanceof ServerPlayer) {
 			CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayer)player, pStack);
 		}
-		ChangedSounds.broadcastSound(pLivingEntity, ChangedSounds.SYRINGE_PRICK, 1, 0.75f);
+		ChangedSounds.broadcastSound(pLivingEntity, ChangedSounds.SYRINGE_PRICK, 1, 0.85f);
 		if (player != null) {
 			player.awardStat(Stats.ITEM_USED.get(this));
 			if (!player.getAbilities().instabuild) {
